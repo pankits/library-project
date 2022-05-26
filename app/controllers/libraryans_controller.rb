@@ -5,7 +5,7 @@ class LibraryansController < ApplicationController
 
   def new
     @libraryan =Libraryan.new
-    @libraryan.users.build
+    @libraryan.build_user
   end
 
   def edit
@@ -35,7 +35,6 @@ class LibraryansController < ApplicationController
   def create
    
    @libraryan =Libraryan.new(libraryan_params)
-   debugger
     if @libraryan.save
        redirect_to libraryans_path
    else
@@ -45,6 +44,6 @@ class LibraryansController < ApplicationController
 
   private
   def libraryan_params
-    params.require(:libraryan).permit(:name, :age, :phone, users_attributes: [:id, :email, :password, :password_confirmation ])
+    params.require(:libraryan).permit(:name, :age, :phone, user_attributes: [:id, :email, :password, :password_confirmation ])
   end
 end
