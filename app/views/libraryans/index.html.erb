@@ -1,0 +1,18 @@
+<table border="1px">
+   <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Phone</th>
+      <th colspan="2">Action</th>
+   </tr>
+   <tr>
+      <% @libraryan.each do |library|%>
+       <td> <%= library.name %></td>
+       <td> <%= library.age %></td>
+       <td> <%= library.phone%></td>
+       <td> <%= link_to "Edit", edit_libraryan_path(library.id),class:"btn btn-primary"%></td>
+       <td><%= link_to 'Destroy',libraryan_path(library.id),method: :delete,class:"btn btn-primary"%></td>
+    
+   </tr>
+   <%end%>
+</table>
